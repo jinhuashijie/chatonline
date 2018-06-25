@@ -11,8 +11,17 @@
 	配置之后速度确实是快了，但是为什么会找不到这个libjs文件呢？奇了怪了，路径绝度是对的
 	start 和 server都只需要25秒左右  bundle.js只有十几K了；
 	使用cdn引入打包速度也之后10秒不到--Provider是找不到的--不行，太多找不到
-
-
+6：antd-mobile需要配置json文件才行                      直接配置打包报错
+	cnpm install babel-plugin-transform-decorators-legacy --save   打包报错
+	cnpm install babel-plugin-import --save-dev   还是不行
+	真正的需要配置babelrc文件，而且要删除react-app这个字段
+7：只配置config，js文件import是找不到react模块的-引入cdn也还是找不到
+	果然跟大小写有关
+	externals: {
+        React: 'react'
+    },
+    在没有引入cdn的情况下，react-dom居然也是有效的，速度没有快，引入的应该是原来的
+8:最终选择热更新组件，速度明显更快；连babelrc文件改变都能被更新到，算是可以了；--但要小心缓存
 
 
 

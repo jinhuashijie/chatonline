@@ -2,8 +2,10 @@ var webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');//加载模板文件
 const CleanWebpackPlugin = require("clean-webpack-plugin");//删除哈希文件，
+//const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
-    //mode: "development",
+    mode: "development", //development  production
 	devtool: 'source-map',//cheap-module-eval-source-map
 	entry:  __dirname + "/src/index.js",//已多次提及的唯一入口文件
 	output: {
@@ -54,16 +56,10 @@ module.exports = {
         ]
     },
     plugins: [
-	 //    new CleanWebpackPlugin('build/*.*', {
-		//     root: __dirname,
-		//     verbose: true,
-		//     dry: false
-		// }),
-        new webpack.HotModuleReplacementPlugin(),//热加载插件
         new HtmlWebpackPlugin({
 	        template: __dirname + "/src/index.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
 	    }),
-        
+        new webpack.HotModuleReplacementPlugin(),//热加载插件 
     ],
 }
 // http://localhost:8080/data

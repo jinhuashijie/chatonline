@@ -2,11 +2,11 @@ import React from 'react'
 import {List,InputItem,WingBlank,WhiteSpace,Button} from 'antd-mobile'
 
 
-class Login extends React.Component{
+class Dashboard extends React.Component{
 
 	render(){
 		return (<div>
-			<h2>登录界面</h2>
+			<h2>主面板页-共用头底</h2>
 			<List>
 						<InputItem>用户名：</InputItem>
 						<InputItem >密码：</InputItem>
@@ -20,7 +20,7 @@ class Login extends React.Component{
 }
 
 
-export default Login
+export default Dashboard
 
 
 
