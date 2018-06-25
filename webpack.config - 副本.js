@@ -3,8 +3,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');//加载模板文件
 const CleanWebpackPlugin = require("clean-webpack-plugin");//删除哈希文件，
 module.exports = {
-    //mode: "development",
-	devtool: 'source-map',//cheap-module-eval-source-map
+     externals: {
+        'react': 'window.__LIB["react"]',
+        'react-dom': 'window.__LIB["react-dom"]',
+        'react-router-dom': 'window.__LIB["react-router-dom"]',
+        'react-redux': 'window.__LIB["react-redux"]',
+        'axios': 'window.__LIB["axios"]',
+        'redux': 'window.__LIB["redux"]',
+        'antd-mobile': 'window.__LIB["antd-mobile"]',
+        'redux-thunk': 'window.__LIB["redux-thunk"]',
+        'socket.io-client': 'window.__LIB["socket.io-client"]'
+    },
+	//devtool: 'source-map',//cheap-module-eval-source-map
 	entry:  __dirname + "/src/index.js",//已多次提及的唯一入口文件
 	output: {
 	  	path: __dirname + "/build",//打包后的文件存放的地方
