@@ -16,12 +16,12 @@ module.exports = {
 	    contentBase: "/build",//本地服务器所加载的页面所在的目录
 	    historyApiFallback: true,//不跳转
 	    inline: true,//实时刷新
-        host: '192.168.64.101',
+        host: '0.0.0.0',
         // 设置热替换
         hot: true,
         proxy: {
             '/data/*': {
-                target: 'http://192.168.64.101:9093',
+                target: 'http://127.0.0.1:9093',
                 //pathRewrite: {'^/data': ''},
                 secure: false, // 接受 运行在 https 上的服务
                 changeOrigin: true
